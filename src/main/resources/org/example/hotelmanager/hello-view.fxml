@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.hotelmanager.HelloController">
+    <padding>
+        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0"/>
+    </padding>
+
+    <Label text="Система бронирования отелей" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <Button text="Вход для Администратора" onAction="#onAdminButtonClick" prefWidth="220.0" prefHeight="40.0"/>
+    <Button text="Войти как Гость" onAction="#onClientButtonClick" prefWidth="220.0" prefHeight="40.0"/>
+</VBox>

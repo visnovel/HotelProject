@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" fx:controller="org.example.hotelmanager.AuthController" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label layoutX="146.0" layoutY="67.0" text="Авторизация администратора">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <TextField fx:id="loginField" layoutX="216.0" layoutY="154.0" promptText="Логин" />
+        <PasswordField fx:id="passwordField" layoutX="216.0" layoutY="200.0" promptText="Пароль" />
+        <Button layoutX="271.0" layoutY="261.0" fx:id="loginButton" onAction="#onLoginButtonClick" mnemonicParsing="Parsing" text="Войти" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+
+<BorderPane prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.hotelmanager.AdminPanelController">
+    <left>
+        <VBox spacing="10.0" style="-fx-background-color: #f4f4f4; -fx-border-color: #ddd; -fx-border-width: 0 1 0 0;" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <children>
+                <Label text="УПРАВЛЕНИЕ" style="-fx-font-weight: bold; -fx-text-fill: #777;">
+                    <VBox.margin><Insets bottom="5.0" /></VBox.margin>
+                </Label>
+                <Button maxWidth="Infinity" text="🏨 Номера" onAction="#onRoomsMenuClick" style="-fx-alignment: CENTER_LEFT;"/>
+                <Button maxWidth="Infinity" text="👥 Гости" onAction="#onGuestsMenuClick" style="-fx-alignment: CENTER_LEFT;"/>
+                <Button maxWidth="Infinity" text="🗓 Шахматка" onAction="#onChessboardMenuClick" style="-fx-alignment: CENTER_LEFT;"/>
+                <Button maxWidth="Infinity" text="📊 Отчеты" onAction="#onReportsMenuClick" style="-fx-alignment: CENTER_LEFT;"/>
+                <Separator />
+                <Button maxWidth="Infinity" text="💰 Финансы" onAction="#onFinanceMenuClick"
+                        style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold; -fx-alignment: CENTER_LEFT;"/>
+            </children>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane BorderPane.alignment="CENTER">
+            <TableView fx:id="mainTable" style="-fx-background-color: white;">
+
+            </TableView>
+
+            <ScrollPane fx:id="chessboardPane" visible="false" style="-fx-background-color: white;">
+                <GridPane fx:id="chessboardGrid" alignment="TOP_LEFT" style="-fx-background-color: #f0f0f0; -fx-padding: 10;">
+                </GridPane>
+            </ScrollPane>
+
+            <VBox fx:id="financePane" visible="false" spacing="10" style="-fx-background-color: white; -fx-padding: 20;">
+                <Label text="Аналитика выручки" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+                <LineChart fx:id="revenueChart" VBox.vgrow="ALWAYS" animated="false">
+                    <xAxis><CategoryAxis label="Дата" /></xAxis>
+                    <yAxis><NumberAxis label="Сумма (₽)" /></yAxis>
+                </LineChart>
+            </VBox>
+        </StackPane>
+    </center>
+
+    <bottom>
+        <StackPane style="-fx-background-color: #f9f9f9; -fx-border-color: #ddd; -fx-border-width: 1 0 0 0;" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+
+            <HBox fx:id="roomControls" spacing="15.0" alignment="CENTER_LEFT">
+                <TextField fx:id="roomNumberField" promptText="Номер" prefWidth="100.0"/>
+                <ComboBox fx:id="categoryCombo" promptText="Категория" prefWidth="130.0"/>
+                <ComboBox fx:id="statusCombo" promptText="Статус" prefWidth="130.0"/>
+                <Button onAction="#onAddRoomClick" text="Добавить" style="-fx-background-color: #34495e; -fx-text-fill: white;" />
+                <Button onAction="#onDeleteButtonClick" text="Удалить" />
+            </HBox>
+
+            <HBox fx:id="bookingControls" spacing="10.0" visible="false" alignment="CENTER_LEFT">
+                <TextField fx:id="guestNameField" promptText="ФИО Гостя" prefWidth="140.0"/>
+                <TextField fx:id="guestPhoneField" promptText="Телефон" prefWidth="100.0"/>
+                <TextField fx:id="guestPassportField" promptText="Паспорт" prefWidth="100.0"/> <!-- Исправлено здесь -->
+                <DatePicker fx:id="checkInPicker" promptText="Заезд" prefWidth="105.0"/>
+                <DatePicker fx:id="checkOutPicker" promptText="Выезд" prefWidth="105.0"/>
+                <ComboBox fx:id="bookingRoomCombo" promptText="№" prefWidth="75.0"/>
+                <Button onAction="#onAddBookingClick" text="Забронировать" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;" />
+            </HBox>
+
+            <HBox fx:id="reportControls" spacing="15.0" visible="false" alignment="CENTER_LEFT">
+                <ComboBox fx:id="reportStatusCombo" promptText="Статус" prefWidth="150.0"/>
+                <Button onAction="#onChangeStatusClick" text="Сменить статус" />
+                <Separator orientation="VERTICAL" />
+                <Button onAction="#onCheckOutClick" text="✅ ВЫЕЗД"
+                        style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;" />
+                <Button onAction="#onGenerateReceiptClick" text="🖨 Чек"
+                        style="-fx-background-color: #f39c12; -fx-text-fill: white;" />
+            </HBox>
+
+            <HBox fx:id="guestControls" spacing="15.0" visible="false" alignment="CENTER_LEFT">
+                <Button onAction="#onShowGuestHistoryClick" text="📂 История" style="-fx-background-color: #3498db; -fx-text-fill: white;" />
+                <Button onAction="#onDeleteButtonClick" text="Удалить" />
+            </HBox>
+        </StackPane>
+    </bottom>
+</BorderPane>
