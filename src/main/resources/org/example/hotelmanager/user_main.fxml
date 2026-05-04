@@ -50,7 +50,6 @@
                     </VBox>
 
                     <Label text="ИЛИ" style="-fx-text-fill: #999; -fx-font-weight: bold;"/>
-
                     <VBox spacing="10.0" maxWidth="400" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);">
                         <Label text="Регистрация" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
                         <TextField fx:id="nameReg" promptText="ФИО" prefHeight="35.0"/>
